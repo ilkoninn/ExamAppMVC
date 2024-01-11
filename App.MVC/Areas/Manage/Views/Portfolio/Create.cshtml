@@ -1,0 +1,36 @@
+﻿@using App.Business.ViewModels.PortfolioVMs;
+@using App.Core.Entities
+@model CreatePortfolioVM
+
+<div class="content-wrapper">
+    <div class="row">
+
+        <div class="col-lg-12 stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Create Portfolio</h4>
+                    <form method="post">
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput" class="form-label">Example label</label>
+                            <input asp-for="Title" class="form-control" placeholder="Input Name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput" class="form-label">Example label</label>
+                            <input asp-for="File" class="form-control" placeholder="Input Name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput" class="form-label">Example label</label>
+                            <select asp-for="CategoryId">
+                                @foreach (var item in ViewData["Categories"] as IQueryable<Category>)
+                                {
+                                    <option value="@item.Id">@item.Name</option>
+                                }
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
